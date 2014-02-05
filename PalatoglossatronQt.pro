@@ -1,7 +1,7 @@
 # -------------------------------------------------
 # Project created by QtCreator 2010-02-19T13:37:03
 # -------------------------------------------------
-QT += xml
+QT += widgets gui xml
 TARGET = PalatoglossatronQt
 TEMPLATE = app
 
@@ -56,7 +56,7 @@ HEADERS += mainwindow.h \
     palatronsettings.h
 FORMS += 
 LIBS += -L./ \
-    -lexslt \
+    -llibexslt \
     -llibxslt \
     -llibxml2 \
     -liconv

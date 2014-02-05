@@ -539,9 +539,9 @@ void MainWindow::exportData()
 		if(values.at(i).length() > 0)
 		{
 		    values[i] = "\"" + values.at(i) + "\"";
-		    QByteArray *p = new QByteArray(parameters.at(i).toAscii());
+            QByteArray *p = new QByteArray(parameters.at(i).toLatin1());
 		    params[nbparams++] = p->data();
-		    QByteArray *v = new QByteArray(values.at(i).toAscii());
+            QByteArray *v = new QByteArray(values.at(i).toLatin1());
 		    params[nbparams++] = v->data();
 		}
 	    }
@@ -557,10 +557,10 @@ void MainWindow::exportData()
     xmlSubstituteEntitiesDefault(1);
     xmlLoadExtDtdDefaultValue = 1;
 
-    QByteArray ba = xslFilename.toAscii();
+    QByteArray ba = xslFilename.toLatin1();
 
     cur = xsltParseStylesheetFile( (const xmlChar*)ba.data() );
-    doc = xmlParseFile( (const char*) experiment->currentFilename.toAscii() );
+    doc = xmlParseFile( (const char*) experiment->currentFilename.toLatin1() );
     res = xsltApplyStylesheet(cur, doc, (const char**)params);
 
     FILE *fid = fopen(destinationFilename.toUtf8(),"w");
